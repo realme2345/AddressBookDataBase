@@ -40,9 +40,9 @@ select * from Address_Book where Addname='Raja' or Type='TE';
 
 /*UC-10 Ability to get number of contact persons i.e. count by type */
 SELECT COUNT(*) FROM Address_Book where Type='SE';
+select * from Address_Book where Addname='Raja' or Type='TE';
 
  /*UC-11 Ability to add person to both Friend and Family */
  Alter table Address_Book add Friend varchar(200) not null default 'Name',Family varchar(200);
  update Address_Book set Friend='hari' where Id in(1,4);
  update Address_Book set Family='Raju' where Id in (4,3);
-
