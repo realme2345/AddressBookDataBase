@@ -17,3 +17,5 @@ SELECT * FROM Address_Book
 SELECT* FROM Address_Book where FirstName='Nari';
 /* UC-4 Edit the addressbook of existing contact based on their names */
 UPDATE Address_Book SET FirstName = 'Nagi'WHERE FirstName = 'Nari';
+/* UC-5 Ability to delete the person */
+delete from Address_Book where FirstName='Nagi';
