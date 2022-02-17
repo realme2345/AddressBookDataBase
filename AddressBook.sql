@@ -32,4 +32,3 @@ SELECT COUNT(*) FROM Address_Book where State='Telangana';
 /* UC-8 Ability to Soretd the AB based on thier State */
 SELECT FirstName FROM Address_Book ORDER BY State;
 
-
