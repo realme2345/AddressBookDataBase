@@ -1,48 +1,44 @@
 /* Create address book data base */
 create database AddressBook
 /* Create Table address book */
-create table Address_Book(
-Id int IDENTITY(1,1) PRIMARY KEY,
-FirstName varchar(200),
+create table PersonDetails(
+FirstName varchar(200) PRIMARY KEY,
 LastName varchar(200),
-Email varchar(200),
-Phnum bigint,
-Address varchar(200),
-State varchar(200),
-Zip bigint
+PersonEmail varchar(200),
 );
-/* Inserting the data into the Table */
-INSERT INTO Address_Book(FirstName,LastName,Email,Phnum,Address,State,Zip)values('Rasi','naasdf','rasipendeela@gmail.com',98374523454,'VJW','Andhra',2474573);
-SELECT * FROM Address_Book
-SELECT* FROM Address_Book where FirstName='Nari';
 
-/* UC-4 Edit the addressbook of existing contact based on their names */
-UPDATE Address_Book SET FirstName = 'Nagi'WHERE FirstName = 'Nari';
+/*Create table for ph numbers */
+create table Phonenumber(
+MobileNum bigint,
+Alternatenum bigint,
+FirstName varchar(200),
+);
+Alter table Phonenumber
+add constraint FK_PersonPhone foreign key(FirstName) references PersonDetails(FirstName);
 
-/* UC-5 Ability to delete the person */
-delete from Address_Book where FirstName='Nagi';
+/* Create table for the Person Address */
+create table AddressPerson(
+Id int IDENTITY(1,1) PRIMARY KEY,
+HouseNo varchar(200),
+Street varchar(200),
+City varchar(200) not null,
+State varchar(200) not null,
+ZipCode bigint not null
+);
+select * from AddressPerson
+Alter table AddressPerson
+add constraint FK_PersonAddress foreign key(FirstName) references PersonDetails(FirstName);
 
-/*UC-6 Ability to retrive the data based on thier city */
-SELECT* FROM Address_Book where State='Telangana';
-SELECT* FROM Address_Book where State='VJW';
+/* Inserted the data into the Table */
+INSERT INTO PersonDetails(FirstName,LastName,PersonEmail)values('Raja','Kongara','rajakonhgd@gmail.com'),('nagi','Guuggilla','nagirdhdue@gmail.com'),('nari','elahah','naridjshdgd@gmail.com');
+select * from PersonDetails
+INSERT INTO  Phonenumber(FirstName,MobileNum,Alternatenum)values('Raja',9883737364,9383877463),('nagi',9292983732,929837349),('nari',9298847643,9736537262);
+select * from Phonenumber
+INSERT INTO AddressPerson(HouseNo,Street,City,State,ZipCode,FirstName)values('1-433-98','ramnaga','HYD','Telangana',500018,'Nagi'),
+('12-34-344','derksjs','VJW','Andhra',506832,'Nari');
 
-/* UC-7 Ability to find Size based on their state*/
-SELECT COUNT(*) FROM Address_Book where State='Telangana';
+select * from AddressPerson where City='HYD' and State='Telangana';
 
-/* UC-8 Ability to Soretd the AB based on thier State */
-SELECT FirstName FROM Address_Book ORDER BY State;
+SELECT COUNT(*) FROM AddressPerson where City='HYD' and State='Telangana';
 
-/* UC-9 Add the name and type of person */
-Alter table Address_Book add Addname varchar(200) not null default 'Name', Type varchar(200);
-select * from Address_Book
-update Address_Book set Addname='Rasi' where Id in(5);
-select * from Address_Book where Addname='Raja' or Type='TE';
-
-/*UC-10 Ability to get number of contact persons i.e. count by type */
-SELECT COUNT(*) FROM Address_Book where Type='SE';
-select * from Address_Book where Addname='Raja' or Type='TE';
-
- /*UC-11 Ability to add person to both Friend and Family */
- Alter table Address_Book add Friend varchar(200) not null default 'Name',Family varchar(200);
- update Address_Book set Friend='hari' where Id in(1,4);
- update Address_Book set Family='Raju' where Id in (4,3);
+select FirstName From AddressPerson ORDER by City;
