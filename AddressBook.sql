@@ -26,4 +26,7 @@ delete from Address_Book where FirstName='Nagi';
 SELECT* FROM Address_Book where State='Telangana';
 SELECT* FROM Address_Book where State='VJW';
 
+/* UC-7 Ability to find Size based on their state*/
+SELECT COUNT(*) FROM Address_Book where State='Telangana';
+
 
