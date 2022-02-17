@@ -28,5 +28,7 @@ SELECT* FROM Address_Book where State='VJW';
 
 /* UC-7 Ability to find Size based on their state*/
 SELECT COUNT(*) FROM Address_Book where State='Telangana';
-
-
+INSERT INTO Address_Book(FirstName,LastName,Email,Phnum,Address,State,Zip)
+values('Nari','Guggilla','guggillanarendar@gmail.com',9837782464,'VJW','Andhra',247473),
+values('Raja','Kongara','kongararaja@gmail.com',8973364722,'Hyd','Telangana',507123);
+SELECT * FROM Address_Book
