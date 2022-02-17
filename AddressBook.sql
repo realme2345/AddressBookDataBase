@@ -32,4 +32,9 @@ SELECT COUNT(*) FROM Address_Book where State='Telangana';
 /* UC-8 Ability to Soretd the AB based on thier State */
 SELECT FirstName FROM Address_Book ORDER BY State;
 
+/* UC-9 Add the name and type of person */
+Alter table Address_Book add Addname varchar(200) not null default 'Name', Type varchar(200);
+select * from Address_Book
+update Address_Book set Addname='Rasi' where Id in(5);
+select * from Address_Book where Addname='Raja' or Type='TE';
 
