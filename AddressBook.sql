@@ -11,3 +11,8 @@ Address varchar(200),
 State varchar(200),
 Zip bigint
 );
+/* Inserting the data into the Table */
+INSERT INTO Address_Book(FirstName,LastName,Email,Phnum,Address,State,Zip)
+values('Nari','Guggilla','guggillanarendar@gmail.com',9837782464,'VJW','Andhra',247473),
+values('Raja','Kongara','kongararaja@gmail.com',8973364722,'Hyd','Telangana',507123);
+SELECT * FROM Address_Book
