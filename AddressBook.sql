@@ -37,3 +37,7 @@ Alter table Address_Book add Addname varchar(200) not null default 'Name', Type 
 select * from Address_Book
 update Address_Book set Addname='Rasi' where Id in(5);
 select * from Address_Book where Addname='Raja' or Type='TE';
+
+/*UC-10 Ability to get number of contact persons i.e. count by type */
+SELECT COUNT(*) FROM Address_Book where Type='SE';
+select * from Address_Book where Addname='Raja' or Type='TE';
