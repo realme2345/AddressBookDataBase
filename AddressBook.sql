@@ -12,7 +12,7 @@ State varchar(200),
 Zip bigint
 );
 /* Inserting the data into the Table */
-INSERT INTO Address_Book(FirstName,LastName,Email,Phnum,Address,State,Zip)values('Nari','Guggilla','guggillanarendar@gmail.com',9837782464,'VJW','Andhra',247473);
+INSERT INTO Address_Book(FirstName,LastName,Email,Phnum,Address,State,Zip)values('Rasi','naasdf','rasipendeela@gmail.com',98374523454,'VJW','Andhra',2474573);
 SELECT * FROM Address_Book
 SELECT* FROM Address_Book where FirstName='Nari';
 
@@ -28,5 +28,8 @@ SELECT* FROM Address_Book where State='VJW';
 
 /* UC-7 Ability to find Size based on their state*/
 SELECT COUNT(*) FROM Address_Book where State='Telangana';
+
+/* UC-8 Ability to Soretd the AB based on thier State */
+SELECT FirstName FROM Address_Book ORDER BY State;
 
 
